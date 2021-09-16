@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-class PaginatedResponse<T> extends Equatable {
+class PaginatedResponse<T> extends Iterable with EquatableMixin {
   final List<T> data;
   final int currentPage;
   final String firstPageUrl;
@@ -99,4 +99,7 @@ class PaginatedResponse<T> extends Equatable {
       total,
     ];
   }
+
+  @override
+  Iterator get iterator => data.iterator;
 }
